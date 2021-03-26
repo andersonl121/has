@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class Theme {
+class MyTheme {
   static Map<int, Color> colorCodes = {
     50: Color.fromRGBO(26, 178, 224, .1),
     100: Color.fromRGBO(26, 178, 224, .2),
@@ -22,23 +22,28 @@ class Theme {
   final ThemeData tema =
       new ThemeData(buttonColor: buttonColor, primarySwatch: color);
 
-  final Color greyText = Color.fromRGBO(70, 70, 70, 1);
-  final Color blueTextA = Color.fromRGBO(26, 178, 224, 1);
-  final Color blueTextB = Color.fromRGBO(17, 70, 237, 1);
+  final Color _greyText = Color.fromRGBO(70, 70, 70, 1);
+  final Color _blueTextA = Color.fromRGBO(26, 178, 224, 1);
+  final Color _blueTextB = Color.fromRGBO(17, 70, 237, 1);
+  final Color _whiteText = Color.fromRGBO(255, 255, 255, 1);
 
   ThemeData getTheme() {
     return tema;
   }
 
   Color getGreyTextColor() {
-    return greyText;
+    return _greyText;
   }
 
   Color getBlueTextAColor() {
-    return blueTextA;
+    return _blueTextA;
   }
 
   Color getBlueTextBColor() {
-    return blueTextB;
+    return _blueTextB;
+  }
+
+  Color getWhiteTextColor() {
+    return _whiteText;
   }
 }
