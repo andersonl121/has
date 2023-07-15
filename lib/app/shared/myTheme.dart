@@ -17,12 +17,13 @@ class MyTheme {
 
   static MaterialColor color = new MaterialColor(0xFF1AB2E0, colorCodes);
 
-  static Color buttonColor = Colors.amber[600];
+  static Color? buttonColor = Colors.amber[600];
 
-  final ThemeData tema =
-      new ThemeData(buttonColor: buttonColor, primarySwatch: color);
+  static ThemeData tema = new ThemeData(
+      buttonTheme: new ButtonThemeData(buttonColor: buttonColor),
+      primarySwatch: color);
 
-  final Color _greyText = Color.fromRGBO(70, 70, 70, 1);
+  static const Color greyText = Color.fromRGBO(70, 70, 70, 1);
   final Color _blueTextA = Color.fromRGBO(26, 178, 224, 1);
   final Color _blueTextB = Color.fromRGBO(17, 70, 237, 1);
   final Color _whiteText = Color.fromRGBO(255, 255, 255, 1);
@@ -32,7 +33,7 @@ class MyTheme {
   }
 
   Color getGreyTextColor() {
-    return _greyText;
+    return greyText;
   }
 
   Color getBlueTextAColor() {

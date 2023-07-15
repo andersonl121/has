@@ -7,77 +7,77 @@ import '../sizeConfig.dart';
 class RoundedInputText extends StatelessWidget {
   String label;
   double largura;
-  Color cor;
-  FontWeight fweight;
+  Color? cor;
+  FontWeight? fweight;
   double size;
-  TextEditingController cont;
+  TextEditingController? cont;
   int length;
   bool focus;
   bool obscure;
-  Function tap;
+  Function()? tap;
   TextInputType kit;
   bool showCounter;
-  Function(String value) val;
+  String? Function(String? value)? val;
   double padding;
 
   RoundedInputText(this.label,
-      {this.largura,
+      {this.largura = 300,
       this.cor,
       this.fweight,
-      this.size,
+      this.size = 14,
       this.cont,
-      this.length,
-      this.focus,
-      this.obscure,
+      this.length = 60,
+      this.focus = false,
+      this.obscure = false,
       this.tap,
-      this.kit,
-      this.showCounter,
+      this.kit = TextInputType.text,
+      this.showCounter = false,
       this.val,
-      this.padding});
+      this.padding = 24});
   @override
   Widget build(BuildContext context) {
     final sc = SizeConfig.of(context);
     return Padding(
-      padding: EdgeInsets.only(top: padding == null ? 24 : padding),
+      padding: EdgeInsets.only(top: padding),
       child: Container(
         padding: EdgeInsets.only(
           top: 5,
           bottom: 5,
         ),
-        width: largura == null ? sc.getSize(300) : sc.getSize(largura),
+        width: sc.getSize(largura),
         height: 65,
         child: TextFormField(
           validator: val == null
               ? (value) {
-                  String retorno;
-                  if (value.length == 0) {
+                  String? retorno;
+                  if (value!.length == 0) {
                     retorno = 'Campo não pode ser vazio.';
                   }
                   return retorno;
                 }
               : val,
-          autofocus: focus == null ? false : focus,
-          obscureText: obscure == null ? false : obscure,
+          autofocus: focus,
+          obscureText: obscure,
           buildCounter: (BuildContext context,
-              {int currentLength, int maxLength, bool isFocused}) {
-            if (showCounter == null || showCounter == false) {
-              return null;
-            } else {
+              {required int currentLength,
+              required bool isFocused,
+              required int? maxLength}) {
+            if (showCounter == true) {
               return Text(
                 '$currentLength/$maxLength',
                 semanticsLabel: 'character count',
               );
             }
           },
-          maxLength: length == null ? 60 : length,
-          keyboardType: kit == null ? TextInputType.text : kit,
+          maxLength: length,
+          keyboardType: kit,
           controller: cont,
-          onTap: tap == null ? null : tap,
+          onTap: tap,
           cursorColor: MyTheme().getTheme().primaryColor,
           style: TextStyle(
             color: cor == null ? MyTheme().getTheme().primaryColor : cor,
             fontWeight: fweight == null ? FontWeight.normal : fweight,
-            fontSize: size == null ? sc.getSize(14) : sc.getSize(size),
+            fontSize: sc.getSize(size),
           ),
           decoration: InputDecoration(
             labelText: label,

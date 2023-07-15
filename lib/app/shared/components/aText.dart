@@ -11,19 +11,19 @@ class AText extends StatelessWidget {
   FontWeight fweight;
   double size;
 
-  AText({this.text, this.align, this.cor, this.fweight, this.size});
+  AText({this.text = "", this.align = TextAlign.center, this.cor = Colors.grey, this.fweight = FontWeight.bold, this.size = 14});
 
   @override
   Widget build(BuildContext context) {
     var sc = SizeConfig.of(context);
     return Text(
       text,
-      textAlign: align == null ? TextAlign.center : align,
+      textAlign: align,
       style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          color: cor == null ? MyTheme().getTheme().primaryColor : cor,
-          fontWeight: fweight == null ? FontWeight.bold : fweight,
-          fontSize: size == null ? sc.getSize(14) : sc.getSize(size),
+          color: cor,
+          fontWeight: fweight,
+          fontSize: sc.getSize(size),
         ),
       ),
     );

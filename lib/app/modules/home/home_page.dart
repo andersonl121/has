@@ -7,7 +7,7 @@ import 'package:sas/app/shared/sizeConfig.dart';
 class HomePage extends StatelessWidget {
   var sc;
   HomePage({
-    Key key,
+      Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:sas/app/shared/components/bText.dart';
 import 'package:sas/app/shared/sizeConfig.dart';
 
 class MyDrawer extends StatelessWidget {
-  SizeConfig sc;
+   late SizeConfig sc;
 
   @override
   Widget build(BuildContext context) {

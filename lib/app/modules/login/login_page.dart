@@ -5,14 +5,14 @@ import 'package:sas/app/shared/sizeConfig.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
-  const LoginPage({Key key, this.title = "Login"}) : super(key: key);
+  const LoginPage({Key? key, this.title = "Login"}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  SizeConfig sc;
+  late SizeConfig sc;
   @override
   Widget build(BuildContext context) {
     sc = SizeConfig.of(context);

@@ -18,16 +18,18 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: "^3.0.6"
 
 dependencies:
-  dio: ^3.0.10
+  dio:
   rxdart: ^0.26.0
-  bloc_pattern: ^2.5.1
-  adobe_xd: ^1.1.0+1
-  google_fonts: ^1.1.1
+  bloc_pattern:
+  adobe_xd: 
+  google_fonts:
   flutter:
     sdk: flutter
+
+
 
 
   # The following adds the Cupertino Icons font to your application.

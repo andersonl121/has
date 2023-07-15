@@ -5,43 +5,46 @@ import 'package:sas/app/shared/sizeConfig.dart';
 import '../MyTheme.dart';
 
 class RoundedButton extends StatelessWidget {
-  Function fun;
+  Function()? fun;
   double largura;
   double fontSize;
-  Widget ch;
-  String text;
+  Widget? ch;
+  String? text;
   double padding;
 
   RoundedButton(this.fun,
-      {this.ch, this.fontSize, this.largura, this.text, this.padding});
+      {this.ch,
+      this.fontSize = 14,
+      this.largura = 220,
+      this.text,
+      this.padding = 24});
 
   @override
   Widget build(BuildContext context) {
     var sc = SizeConfig.of(context);
     return Padding(
-      padding: EdgeInsets.only(top: padding == null ? 24 : padding),
+      padding: EdgeInsets.only(top: padding),
       child: Center(
         child: Container(
-          width: largura == null ? sc.getSize(220) : sc.getSize(largura),
+          width: sc.getSize(largura),
           height: 50,
-          child: RaisedButton(
+          child: ElevatedButton(
             onPressed: fun,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                side: BorderSide(style: BorderStyle.none)),
-            color: MyTheme().getTheme().primaryColor,
-            disabledColor: MyTheme().getTheme().primaryColor,
-            textColor: Colors.white,
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(style: BorderStyle.none)),
+              backgroundColor: MyTheme().getTheme().primaryColor,
+              disabledBackgroundColor: MyTheme().getTheme().primaryColor,
+            ),
             child: text != null
                 ? Text(
-                    text,
+                    text.toString(),
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: fontSize == null
-                            ? sc.getSize(14)
-                            : sc.getSize(fontSize),
+                        fontSize: sc.getSize(fontSize),
                       ),
                     ),
                   )

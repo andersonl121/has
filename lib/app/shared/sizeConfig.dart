@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class SizeConfig {
   final MediaQueryData mediaQueryData;
 
-  SizeConfig({this.mediaQueryData});
+  SizeConfig({required this.mediaQueryData});
 
   static SizeConfig of(BuildContext context) =>
       SizeConfig(mediaQueryData: MediaQuery.of(context));
 
   double getSize(double size,
-      {double scaleFactorTablet, double scaleFactorMini}) {
+      {double? scaleFactorTablet, double? scaleFactorMini}) {
     if (isTablet()) {
       final scaleFactor = scaleFactorTablet ?? 1.2;
       return size * scaleFactor;
