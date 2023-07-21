@@ -26,6 +26,10 @@ dependencies:
   bloc_pattern:
   adobe_xd: 
   google_fonts:
+  carousel_slider:
+  flutter_tts: 
+  
+
   flutter:
     sdk: flutter
 
