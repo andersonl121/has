@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:sas/app/modules/home/home_page.dart';
 import 'package:sas/app/shared/providers/apiProvider.dart';
 
+import '../../app_bloc.dart';
+import '../../shared/providers/speechProvider.dart';
+
 class HomeModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
@@ -14,7 +17,8 @@ class HomeModule extends ModuleWidget {
   @override
   List<Dependency> get dependencies => [
         Dependency((i) => Dio()),
-        Dependency((i) => ApiProvider(i.get<Dio>()), singleton: true)
+        Dependency((i) => ApiProvider(i.get<Dio>()), singleton: true),
+        Dependency((i) => AppBloc(i.get<SpeechProvider>()))
       ];
 
   @override

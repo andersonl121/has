@@ -13,10 +13,10 @@ class SpeechProvider {
   _configureSpeech() async {
     _tts.setLanguage(_language);
     _tts.setVolume(_volume);
-    await _tts.awaitSpeakCompletion(true);
+    _tts.awaitSpeakCompletion(true);
   }
 
-  speak(String text) {
+  speak(String text) async {
     _tts.speak(text);
   }
 }

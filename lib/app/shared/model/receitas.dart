@@ -1,21 +1,25 @@
-import 'ingredientes.dart';
+import 'package:sas/app/shared/model/ingredientesReceitas.dart';
 
 class Receitas {
-  int? id;
-  String? nome;
-  String? descricao;
-  List<Ingredientes>? ingredientes;
+  int id = 0;
+  String nome = "";
+  String descricao = "";
+  List<IngredientesReceitas>? ingredientesReceitas;
 
-  Receitas({this.id, this.nome, this.descricao, this.ingredientes});
+  Receitas(
+      {required this.id,
+      required this.nome,
+      required this.descricao,
+      this.ingredientesReceitas});
 
   Receitas.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     nome = json['nome'];
     descricao = json['descricao'];
-    if (json['ingredientes'] != null) {
-      ingredientes = <Ingredientes>[];
-      json['ingredientes'].forEach((v) {
-        ingredientes!.add(new Ingredientes.fromJson(v));
+    if (json['ingredientesReceitas'] != null) {
+      ingredientesReceitas = <IngredientesReceitas>[];
+      json['ingredientesReceitas'].forEach((v) {
+        ingredientesReceitas!.add(new IngredientesReceitas.fromJson(v));
       });
     }
   }
@@ -25,8 +29,9 @@ class Receitas {
     data['id'] = this.id;
     data['nome'] = this.nome;
     data['descricao'] = this.descricao;
-    if (this.ingredientes != null) {
-      data['ingredientes'] = this.ingredientes!.map((v) => v.toJson()).toList();
+    if (this.ingredientesReceitas != null) {
+      data['ingredientesReceitas'] =
+          this.ingredientesReceitas!.map((v) => v.toJson()).toList();
     }
     return data;
   }

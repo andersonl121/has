@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sas/app/modules/login/login_module.dart';
 import 'package:sas/app/modules/signup/signup_module.dart';
 import 'package:sas/app/shared/components/bText.dart';
 import 'package:sas/app/shared/sizeConfig.dart';
 
 class MyDrawer extends StatelessWidget {
-   late SizeConfig sc;
+  late SizeConfig sc;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,8 @@ class MyDrawer extends StatelessWidget {
           //Item Home
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginModule()));
+              // Navigator.push(context,
+              //   MaterialPageRoute(builder: (context) => LoginModule()));
             },
             child: Padding(
               padding: EdgeInsets.only(top: 12),
@@ -40,8 +39,8 @@ class MyDrawer extends StatelessWidget {
           //Item Login
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginModule()));
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => LoginModule()));
             },
             child: Padding(
               padding: EdgeInsets.only(top: 12),
