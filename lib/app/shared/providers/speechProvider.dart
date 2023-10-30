@@ -19,4 +19,8 @@ class SpeechProvider {
   speak(String text) async {
     _tts.speak(text);
   }
+
+  stop() async {
+    _tts.stop();
+  }
 }

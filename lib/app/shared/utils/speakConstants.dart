@@ -6,13 +6,17 @@ class SpeakConstants {
       ' Seja bem vindo ao Hearing Assistance System. ';
 
   static const optionListenReceitaText =
-      ' Para ouvir uma receita dê dois cliques rápidos na tela. ';
+      ' Para ouvir uma receita dê dois toques rápidos na tela. ';
 
   static const optionSelectReceitaText =
-      ' Para próxima receita dê um clique na tela. ';
+      ' Para próxima receita dê um toque na tela. ';
 
   static const presentationIntroReceitaText =
       'Para fazer essa receita você irá precisar de: ';
+
+  static const introdutionReadingReceitaText = 'Ouvindo receita: ';
+
+  static const optionBackPage = ' Dê um toque na tela para voltar. ';
 
   static const speakPauseTime = 1;
 }

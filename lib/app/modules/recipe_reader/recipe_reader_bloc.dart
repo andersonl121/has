@@ -25,7 +25,10 @@ class RecipeReaderBloc extends BlocBase {
   }
 
   String _buildTextToRead(List<IngredientesReceitas>? ingredientes) {
-    String text = SpeakConstants.presentationIntroReceitaText;
+    String text = SpeakConstants.introdutionReadingReceitaText;
+    text = text + _receita.nome + ". ";
+    text = text + SpeakConstants.optionBackPage;
+    text = text + SpeakConstants.presentationIntroReceitaText;
 
     ingredientes?.forEach((element) {
       String? translatedQuantity = new QuantityTranslator()

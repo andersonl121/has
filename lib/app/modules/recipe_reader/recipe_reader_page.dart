@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sas/app/app_bloc.dart';
+import 'package:sas/app/app_module.dart';
 import 'package:sas/app/modules/recipe_reader/recipe_reader_bloc.dart';
 import 'package:sas/app/modules/recipe_reader/recipe_reader_module.dart';
 
@@ -17,10 +19,12 @@ class RecipeReaderPage extends StatefulWidget {
 class _RecipeReaderPageState extends State<RecipeReaderPage> {
   var _sc;
   late final RecipeReaderBloc _bloc;
+  late final AppBloc _appBloc;
 
   @override
   void initState() {
     _bloc = RecipeReaderModule.to.bloc<RecipeReaderBloc>();
+    _appBloc = AppModule.to.bloc<AppBloc>();
     super.initState();
     _bloc.doReadRecipe();
   }
@@ -37,9 +41,18 @@ class _RecipeReaderPageState extends State<RecipeReaderPage> {
           ),
           iconTheme: IconThemeData(color: Colors.white),
         ),
-        body: new Center(
-          child:
-              AText(text: "Reproduzindo Receita: " + _bloc.activeReceita.nome),
-        ));
+        body: GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              setState(() {
+                _appBloc.stopSpeak();
+              });
+
+              Navigator.pop(context);
+            },
+            child: new Center(
+              child: AText(
+                  text: "Reproduzindo Receita: " + _bloc.activeReceita.nome),
+            )));
   }
 }

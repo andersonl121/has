@@ -31,6 +31,10 @@ class AppBloc extends BlocBase {
     sleep(Duration(seconds: SpeakConstants.speakPauseTime));
   }
 
+  stopSpeak() {
+    _speechProvider.stop();
+  }
+
   void activateReceita(Receitas receita) {
     _receitaAtivaSink.add(receita);
     _receitaAtiva = receita;
