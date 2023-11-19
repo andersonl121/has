@@ -14,9 +14,16 @@ class SpeakConstants {
   static const presentationIntroReceitaText =
       'Para fazer essa receita você irá precisar de: ';
 
+  static const presentationIntroReceitaMakerText =
+      'Vamos começar a fazer a receita de: ';
+
+  static const introLocateItemReceitaMakerText = 'Localize o item: ';
+
   static const introdutionReadingReceitaText = 'Ouvindo receita: ';
 
   static const optionBackPage = ' Dê um toque na tela para voltar. ';
 
   static const speakPauseTime = 1;
+
+  static const preposition_Em = ' em ';
 }

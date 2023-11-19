@@ -1,8 +1,8 @@
 class Locais {
-  int? id;
-  String? nome;
+  int id = 0;
+  String nome = "";
 
-  Locais({this.id, this.nome});
+  Locais({required this.id, required this.nome});
 
   Locais.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -54,6 +54,35 @@ class RecipeReaderBloc extends BlocBase {
     return text;
   }
 
+  void makeRecipe() {
+    _receita = _appBloc.activeReceita;
+    _reproduceIntroReceitaMaker();
+    _obtainItens();
+  }
+
+  void _reproduceIntroReceitaMaker() {
+    String textToSpeak =
+        SpeakConstants.presentationIntroReceitaMakerText + activeReceita.nome;
+    _appBloc.speak(textToSpeak);
+  }
+
+  void _obtainItens() {
+    activeReceita.ingredientesReceitas?.map((e) => locateItem(e));
+  }
+
+  void locateItem(IngredientesReceitas ingredientesReceitas) {
+    speakItemIntro(ingredientesReceitas);
+    //await Item location
+  }
+
+  void speakItemIntro(IngredientesReceitas ingredientesReceitas) {
+    String textToSpeak = SpeakConstants.introLocateItemReceitaMakerText;
+    textToSpeak = textToSpeak + ingredientesReceitas.ingredientes.nome;
+    textToSpeak = textToSpeak + SpeakConstants.preposition_Em;
+    textToSpeak = textToSpeak + ingredientesReceitas.ingredientes.local.nome;
+    _appBloc.speak(textToSpeak);
+  }
+
   //dispose will be called automatically by closing its streams
   @override
   void dispose() {

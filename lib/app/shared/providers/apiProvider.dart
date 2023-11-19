@@ -5,7 +5,7 @@ import '../model/receitas.dart';
 class ApiProvider {
   final Dio _dio;
 
-  final String _baseUrl = 'http://192.168.1.12:8080';
+  final String _baseUrl = 'http://192.168.1.8:8080';
   final String _ingredientesScope = '/ingredientes';
   final String _receitasScope = '/receitas';
 
